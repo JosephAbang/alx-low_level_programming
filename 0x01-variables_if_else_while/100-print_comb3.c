@@ -11,19 +11,21 @@
 int main(void)
 {
 	int i = '0';
-	int j;
+	int j = '0';
 
 	while (i <= '8')
 	{
-		for (j = '1'; j <= '9'; j++)
+		j = i + 1;
+		while (i <= '9' && j <= '9')
 		{
 			putchar(i);
 			putchar(j);
 			if (i < '8' || j < '9')
 			{
-			putchar(',');
-			putchar(' ');
+				putchar(',');
+				putchar(' ');
 			}
+			j++;
 		}
 		i++;
 	}
