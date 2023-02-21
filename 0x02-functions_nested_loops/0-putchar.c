@@ -5,8 +5,7 @@
  *
  * Description - Print text using main header file
  *
- * return: Always 0
- *
+ * Return: Always 0
  */
 
 int main(void)
