@@ -1,4 +1,6 @@
 #include <unistd.h>
+#ifndef main_h
+#define main_h
 
 /**
  * _putchar - wirtes the character c to stdout
@@ -7,7 +9,14 @@
  * return: On success 1.
  * ON ERROR, -1 is returned, and errno is set appopriately.
  */
-int _putchar(char c)
+
+int main(void)
 {
-	return (write(1, &c, 1));
+
+	int _putchar(char c)
+	{
+		return (write(1, &c, 1));
+	}
 }
+
+#endif
