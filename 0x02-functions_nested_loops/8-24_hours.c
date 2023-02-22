@@ -13,16 +13,12 @@ void jack_bauer(void)
 	int a, b, c, d;
 
 	a = 48;
-	b = 48;
-	c = 48;
-	d = 48;
-
 	while (a < 51)
-	{
+	{	b = 48;
 		while (b < 52)
-		{
+		{	c = 48;
 			while (c < 54)
-			{
+			{	d = 48;
 				while (d <= 57 && c < 54)
 				{
 					_putchar(a);
@@ -33,10 +29,13 @@ void jack_bauer(void)
 					_putchar('\n');
 					d++;
 				}
+				c++;
+				d = 48;
 			}
-			c++;
+			b++;
+			c = 48;
 		}
-		b++;
+		a++;
+		b = 48;
 	}
-	a++;
 }
