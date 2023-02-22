@@ -12,21 +12,18 @@
 
 void print_to_98(int n)
 {
-	while (n < 98 || n > 98)
-	{
 		if (n < 98)
 		{
-			putchar(n);
-			n++;
+			for (n = n; n < 98; n++)
+				_putchar(n);	
 		}
 		else if (n > 98)
 		{
-			putchar(n);
-			n--;
+			for (n = n; n > 98; n--)
+				_putchar(n);
 		}
 		else
 		{
-			return (n);
+			_putchar(n);
 		}
-	}
 }
