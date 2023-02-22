@@ -5,17 +5,12 @@
  *
  * description : Prints the absolute value of int
  *
- * @int : Value must be whole number
+ * @n : Character to be printed
  *
  * Return: int
  */
 
 int _abs(int n)
 {
-	if (n < 0)
-	{
-		n = (-1) * (n);
-		_putchar(n);
-	}
-	return n;
+	return (n * ((n > 0) - (n < 0)));
 }
