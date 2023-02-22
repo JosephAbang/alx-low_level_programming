@@ -9,10 +9,10 @@
  *
  * @j : right number to be added
  *
- * return : int
+ * Return: int from added @i and @j values
  */
 
-int add(int i,int j)
+int add(int i, int j)
 {
 	return (i + j);
 }
