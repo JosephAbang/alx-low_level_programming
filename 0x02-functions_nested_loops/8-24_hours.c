@@ -19,7 +19,7 @@ void jack_bauer(void)
 		{	c = 48;
 			while (c < 54)
 			{	d = 48;
-				while (d <= 57 && c < 54)
+				while (d <= 57)
 				{
 					_putchar(a);
 					_putchar(b);
