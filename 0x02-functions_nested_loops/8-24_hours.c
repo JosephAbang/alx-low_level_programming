@@ -10,16 +10,23 @@
 
 void jack_bauer(void)
 {
-	int a, b, c, d;
+	int a, b, c, d, ab_max;
 
 	a = 48;
+	ab_max = 58;
 	while (a < 51)
-	{	b = 48;
-		while (b < 52)
-		{	c = 48;
+	{
+		if (a == 50)
+		{
+			ab_max = 52;
+		}
+		b = 48;
+		while (b < ab_max)
+		{	
+			c = 48;
 			while (c < 54)
 			{	d = 48;
-				while (d <= 57)
+				while (d < 58)
 				{
 					_putchar(a);
 					_putchar(b);
