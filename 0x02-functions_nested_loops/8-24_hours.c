@@ -22,7 +22,7 @@ void jack_bauer(void)
 		}
 		b = 48;
 		while (b < ab_max)
-		{	
+		{
 			c = 48;
 			while (c < 54)
 			{	d = 48;
