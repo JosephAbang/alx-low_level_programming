@@ -10,12 +10,15 @@
 
 void print_line(int n)
 {
+	int i;
+
 	if (n > 0)
 	{
-		while (n >= 0)
+		i = 0;
+		while (i <= n)
 		{
 			_putchar('_');
-			n--;
+			i++;
 		}
 	}
 	else
