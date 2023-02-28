@@ -1,15 +1,15 @@
 #include "main.h"
 
 /**
- * puts2 - Reverses a string
+ * rev_string - Reverses a string
  *
- * @str: String
+ * @s: String
  *
  *
  * return: void
  */
 
-void puts2(char *str)
+void rev_string(char *str)
 {
 	int i = 0, len = 0;
 	char temp;
