@@ -3,7 +3,7 @@
 /**
  * puts2 - Reverses a string
  *
- * @s: String
+ * @str: String
  *
  *
  * return: void
