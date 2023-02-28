@@ -3,7 +3,7 @@
 /**
  * rev_string - Reverses a string
  *
- * @s: String
+ * @str: Pointer string
  *
  *
  * return: void
@@ -14,9 +14,9 @@ void rev_string(char *str)
 	int i = 0, len = 0;
 	char temp;
 
-	while (str[i] != '\0')
+	while (str[len] != '\0')
 	{
-		i++;
+		len++;
 	}
 
 	for (i = 0; i < len / 2; i++)
