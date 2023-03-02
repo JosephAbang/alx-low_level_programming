@@ -35,7 +35,7 @@ char *cap_string(char *str)
 				str[i + 1] = (int)str[i + 1] - 32;
 			}
 		}
-		else if (str[i] == ';')
+		else if (i == 0 || str[i] == ';')
 		{
 			if ((int)str[i + 1] >= 97 && (int)str[i + 1] <= 122)
 			{
