@@ -14,7 +14,7 @@ char *cap_string(char *str)
 
 	while (str[i] != '\0')
 	{
-		if (str[i] == '\n' || str[i] == ',' || str[i] == '.' || str[i] == '!')
+		if (i == 0 || str[i] == '\n' || str[i] == ',' || str[i] == '!')
 		{
 			if ((int)str[i + 1] >= 97 && (int)str[i + 1] <= 122)
 			{
@@ -35,7 +35,7 @@ char *cap_string(char *str)
 				str[i + 1] = (int)str[i + 1] - 32;
 			}
 		}
-		else if (i == 0 || str[i] == ';')
+		else if (str[i] == ';' || str[i] == '.')
 		{
 			if ((int)str[i + 1] >= 97 && (int)str[i + 1] <= 122)
 			{
