@@ -12,9 +12,9 @@ int  _sqrt_recursion(int n)
 {
 	if (n <= 0)
 		return (-1);
-	if (n == 1 || n == 1)
+	if (n == 1)
 		return (n);
-	return (sqrt_helper(n, n / 2));
+	return (sqrt_helper(n, 0));
 }
 
 
@@ -29,11 +29,11 @@ int  _sqrt_recursion(int n)
 
 int sqrt_helper(int n, int guess)
 {
-	if (guess == n)
+	if (guess * guess == n)
 	{
 		return (guess);
 	}
-	else if ((guess * guess) < n || (guess * guess) > n)
+	else if ((guess * guess) < n)
 	{
 		return (sqrt_helper(n, guess + 1));
 	}
