@@ -1,48 +1,90 @@
 #include "variadic_functions.h"
 #include <stdio.h>
+#include <stdlib.h>
 #include <stdarg.h>
 
 /**
- * print_all - Print all formats
- *
- * @format: format identifier
- *
- * Return: void
+ * print_char - print char
+ * @args: list of arguments
+ */
+
+void print_char(va_list args)
+{
+	printf("%c", va_arg(args, int));
+}
+
+/**
+ * print_int - print int
+ * @args: list of arguments
+ */
+
+void print_int(va_list args)
+{
+	printf("%d", va_arg(args, int));
+}
+
+/**
+ * print_float - print float
+ * @args: list of arguments
+ */
+
+void print_float(va_list args)
+{
+	printf("%f", va_arg(args, double));
+}
+
+/**
+ * print_string - print string
+ * @args: list of arguments
+ */
+
+void print_string(va_list args)
+{
+	char *str = va_arg(args, char *);
+
+	if (str == NULL)
+	{
+		printf("(nil)");
+		return;
+	}
+	printf("%s", str);
+}
+
+/**
+ * print_all - prints anything*
+ * @format: list of types of arguments
  */
 
 void print_all(const char * const format, ...)
 {
 	va_list args;
-	char *str_arg;
-	char *separator = "";
-	unsigned int i = 0;
+	int i, j;
+	char *s1 = "";
+	char *s2 = ", ";
+
+	op_t ops[] = {
+		{'c', print_char},
+		{'i', print_int},
+		{'f', print_float},
+		{'s', print_string},
+		{'\0', NULL}
+	};
 
 	va_start(args, format);
-	while (format && format[i])
+	i = 0;
+	while (format != NULL && format[i] != '\0')
 	{
-		switch (format[i])
+		j = 0;
+		while (ops[j].c != '\0')
 		{
-			case 'c':
-				printf("%s%c", separator, va_arg(args, int));
-				break;
-			case 'i':
-				printf("%s%d", separator, va_arg(args, int));
-				break;
-			case 'f':
-				printf("%s%f", separator, va_arg(args, double));
-				break;
-			case 's':
-				str_arg = va_arg(args, char *);
-				if (str_arg != NULL)
-					printf("%s%s", separator, str_arg);
-				else
-					printf("%s(nil)", separator);
-				break;
-			default:
-				i++;
-				continue;
+			if (ops[j].c == format[i])
+			{
+				printf("%s", s1);
+				ops[j].f(args);
+				s1 = s2;
+			}
+			j++;
 		}
-		separator = ", ";
 		i++;
 	}
 	printf("\n");
