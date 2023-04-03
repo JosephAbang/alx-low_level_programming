@@ -10,7 +10,7 @@
 int delete_nodeint_at_index(listint_t **head, unsigned int index)
 {
 	listint_t *xnode, *current;
-	unsigned int count;
+	unsigned int count = 0;
 
 	xnode = *head;
 	current = NULL;
