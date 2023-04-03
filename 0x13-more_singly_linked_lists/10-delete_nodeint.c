@@ -19,15 +19,15 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 		return (-1);
 	if (index == 0)
 	{
-		*head = (*head)->next;
+		current = (*head)->next;
 		free(xnode);
 		return (1);
 	}
 	while (count < index - 1)
 	{
-		if (!current || !(current->next))
+		if (!xnode || !xnode->next)
 			return (-1);
-		current = current->next;
+		xnode =  xnode->next;
 		count++;
 	}
 
