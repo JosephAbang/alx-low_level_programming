@@ -19,9 +19,13 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (fpr == NULL)
 		return (0);
 	n = fread(buff, sizeof(char), letters, fpr);
-	while (buff[count] != '\0')
+	while (count < n)
 	{
-		_putchar(buff[count]);
+		if (write(STDOUT_FILENO, &buff[count], 1) == -1)
+		{
+			fclose(fpr);
+			return (0);
+		}
 		count++;
 	}
 	fclose(fpr);
