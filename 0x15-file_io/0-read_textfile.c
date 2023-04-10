@@ -15,7 +15,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	if (filename == NULL)
 		return (0);
-	fpr = fopen(filename, "rb");
+	fpr = fopen(filename, "r");
 	if (fpr == NULL)
 		return (0);
 	n = fread(buff, sizeof(char), letters, fpr);
