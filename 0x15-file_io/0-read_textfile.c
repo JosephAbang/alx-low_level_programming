@@ -26,12 +26,13 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		if (num_write > f_content)
 			num_write = f_content;
 		written = write(STDOUT_FILENO, buff, num_write);
-		if (written != num_write)
+		if (written == -1)
 		{
 			close(fdes);
 			return (0);
 		}
 		fc_read += written;
+		f_content = read(fdes, buff, sizeof(buff));
 	}
 	close(fdes);
 	return (fc_read);
