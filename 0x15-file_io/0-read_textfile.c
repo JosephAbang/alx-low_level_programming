@@ -9,25 +9,30 @@
 
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	FILE *fpr;
+	int fdes;
+	ssize_t f_content, fc_read = 0, num_write, written;
 	char buff[1024];
-	ssize_t count = 0, n;
 
 	if (filename == NULL)
 		return (0);
-	fpr = fopen(filename, "r");
-	if (fpr == NULL)
+	fdes = open(filename, O_RDONLY);
+	if (fdes == -1)
 		return (0);
-	n = fread(buff, sizeof(char), letters, fpr);
-	while (count < n)
+
+	f_content = read(fdes, buff, sizeof(buff));
+	while (f_content > 0 && fc_read < (ssize_t)letters)
 	{
-		if (write(STDOUT_FILENO, &buff[count], 1) == -1)
+		num_write = letters - fc_read;
+		if (num_write > f_content)
+			num_write = f_content;
+		written = write(STDOUT_FILENO, buff, num_write);
+		if (written != num_write)
 		{
-			fclose(fpr);
+			close(fdes);
 			return (0);
 		}
-		count++;
+		fc_read += written;
 	}
-	fclose(fpr);
-	return (n);
+	close(fdes);
+	return (fc_read);
 }
