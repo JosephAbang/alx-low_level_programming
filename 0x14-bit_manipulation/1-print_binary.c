@@ -7,15 +7,18 @@
  */
 void print_binary(unsigned long int n)
 {
-	unsigned long int mask = 1;
-	int shift_count = sizeof(unsigned long int) * 8 - 1;
+	int found = 0;	
+	unsigned long int mask = 1UL << (sizeof(unsigned long int) * 8 - 1);
 
-	while (shift_count >= 0)
+	while (mask > 0)
 	{
-		if (n & (mask << shift_count))
+		if ((n & mask) == mask)
+		{
 			_putchar('1');
-		else
+			found = 1;
+		}
+		else if (found == 1 || mask == 1)
 			_putchar('0');
-		shift_count--;
+		mask >>= 1;
 	}
 }
