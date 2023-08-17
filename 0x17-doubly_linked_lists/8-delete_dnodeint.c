@@ -3,7 +3,7 @@
 /**
  * delete_dnodeint_at_index - delete nofe at nth index
  * @head: Head of the list
- * @index: index of node 
+ * @index: index of node
  * Return:1 if it succeeded, -1 if it failed
  **/
 
@@ -21,7 +21,7 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		cnt++;
 	}
 	temp1 = *head;
-	if (index > cnt && index > 0)
+	if (index > cnt)
 		return (-1);
 	else if (index == 0)
 	{
@@ -37,7 +37,20 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		*head = temp2;
 		free(temp1);
 		return (1);
-	}	
+	}
+	else if (index == cnt - 1)
+	{
+		temp1 = *head;
+		while (index != 1)
+		{
+			temp1 = temp1->next;
+			index--;
+		}
+		temp2 = temp1->next;
+		temp1->next = NULL;
+		free(temp2);
+		return (1);
+	}
 	else
 	{
 		temp1 = *head;
