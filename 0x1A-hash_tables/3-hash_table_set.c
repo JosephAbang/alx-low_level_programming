@@ -22,19 +22,17 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (0);
 	new->key = strdup(key);
 	new->value = strdup(value);
+	if (new->key == NULL || new->value == NULL)
+	{
+		free(new->key);
+		free(new->value);
+		free(new);
+		return (0);
+	}
 
 	idx = key_index((unsigned char *)key, ht->size);
-	if (ht->array[idx] == NULL)
-	{
-		ht->array[idx] = new;
-		new->next = NULL;
-		return (1);
-	}
-	else
-	{
-		new->next = ht->array[idx];
-		ht->array[idx] = new;
-		return (1);
-	}
-	return (0);
+
+	new->next = ht->array[idx];
+	ht->array[idx] = new;
+	return (1);
 }
