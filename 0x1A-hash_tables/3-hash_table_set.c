@@ -15,12 +15,12 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	if (strlen(value) == 0 || value == NULL)
 		return (0);
-	if (ht == NULL)
+	if (ht == NULL || key == NULL || strlen(key) == 0)
 		return (0);
 	new = malloc(sizeof(hash_node_t));
 	if (new == NULL)
 		return (0);
-	new->key = strdup(key);	
+	new->key = strdup(key);
 	new->value = strdup(value);
 
 	idx = key_index((unsigned char *)key, ht->size);
