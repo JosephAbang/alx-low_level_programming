@@ -38,7 +38,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		if (strcmp(temp->key, key) == 0)
 		{
 			ht->array[idx] = NULL;
-			/*free(temp);*/
 			break;
 		}
 		temp = temp->next;
