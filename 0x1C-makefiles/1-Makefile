@@ -1,0 +1,8 @@
+#Builds an executable using variables
+
+all: school
+
+school: main.c school.c
+
+CC: gcc
+SRC: main.c school.c
