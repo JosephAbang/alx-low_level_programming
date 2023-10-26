@@ -3,8 +3,10 @@ SRC = main.c school.c
 NAME = school
 CFLAGS = -Wall -Werror -Wextra -pedantic
 
+all: $(NAME)
+
 $NAME: $(SRC:.c=.o)
-	$(CC) -o $@ $^
+	$(CC) -o $@ $^ $(CFLAGS)
 
 clean:
 	rm -f *~ $(NAME)
@@ -16,9 +18,6 @@ fclean: clean oclean
 
 re: fclean all
 
-all: $(NAME)
-
 $(SRC:.c=.o): m.h
-
 
 .PHONY: all clean oclean fclean re
